@@ -1,8 +1,10 @@
+import sys
+
 from stats import get_books_words
 from stats import get_books_chars
 from stats import sort
 
-path_to_file = "books/frankenstein.txt"
+path_to_file = ""
 words_in_book_dic = {}
 words_in_book_list = []
 
@@ -30,5 +32,9 @@ def main():
 
     print(f"============= END ===============")
 
-
-main()
+if len(sys.argv) != 2:
+    print("Usage: python3 main.py <path_to_book>")
+    sys.exit(1)
+else:
+    path_to_file = sys.argv[1]
+    main()
